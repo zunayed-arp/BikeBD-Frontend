@@ -8,7 +8,7 @@ import useAuth from '../../../hooks/useAuth';
 
 const PlaceOrder = () => {
 
-	const [loading,setLoding] = useState(true);
+	const [loading, setLoding] = useState(true);
 
 	const { allContexts } = useAuth();
 	const { user } = allContexts;
@@ -20,7 +20,7 @@ const PlaceOrder = () => {
 	const { id } = useParams();
 
 	useEffect(() => {
-		axios.get(`http://localhost:5000/products/${id}`)
+		axios.get(`https://aqueous-inlet-49489.herokuapp.com/products/${id}`)
 			.then(res => {
 				const gotProduct = res.data;
 				setProduct(gotProduct);
@@ -36,7 +36,7 @@ const PlaceOrder = () => {
 	const { register, handleSubmit } = useForm();
 
 	const onSubmit = (data) => {
-		const { name, email, address, phone,  } = data;
+		const { name, email, address, phone, } = data;
 		const ordered = {
 			title,
 			description,
@@ -51,11 +51,11 @@ const PlaceOrder = () => {
 			status: "Pending",
 		};
 		// console.log(ordered)
-		axios.post("http://localhost:5000/book", ordered)
+		axios.post("https://aqueous-inlet-49489.herokuapp.com/book", ordered)
 			// console.log('clicked')
 			.then((res) => {
 				const response = res.data;
-					console.log(res)
+				console.log(res)
 				if (response) {
 					alert("Successfully purchase the product!");
 					history.push("/myOrders");
@@ -87,9 +87,9 @@ const PlaceOrder = () => {
 			className="pb-2"
 		>
 			<h1 className="text-center booking-title text-dark mb-5">
-		
+
 				Purchase the <span className="text-danger bg-info border rounded">	  {title}</span>
-		
+
 			</h1>
 			<div className="container">
 				<div>

@@ -6,7 +6,7 @@ const Blogs = () => {
 	const [blogs, setBlogs] = useState([]);
 
 	useEffect(() => {
-		const url = `http://localhost:5000/blogs`
+		const url = `https://aqueous-inlet-49489.herokuapp.com/blogs`
 		fetch(url)
 			.then(res => res.json())
 			.then(data => {
@@ -24,8 +24,8 @@ const Blogs = () => {
 						blogs.map(blog =>
 
 							<Col
-							
-							key={blog._id}>
+
+								key={blog._id}>
 								<div class="card  justify-content-center align-items-center" style={{ width: '18rem' }} >
 									<img src={blog?.img} className="card-img-top" alt="" />
 									<div class="card-body">

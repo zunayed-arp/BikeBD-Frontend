@@ -10,7 +10,7 @@ const HomeExplore = () => {
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		axios.get('http://localhost:5000/products')
+		axios.get('https://aqueous-inlet-49489.herokuapp.com/products')
 			.then(res => {
 				// console.log(res.data);
 				setProducts(res.data);
@@ -31,7 +31,7 @@ const HomeExplore = () => {
 	return (
 		<Container className="my-5">
 
-		<h1 className="border bg-info">Explore Bikes</h1>
+			<h1 className="border bg-info">Explore Bikes</h1>
 			<Row>
 				{
 					products.slice(Math.max(products.length - 6)).map(product => {
@@ -71,7 +71,7 @@ const Product = ({ product }) => {
 						<h4 style={{ minHeight: "60px" }}>PRICE:{price}$</h4>
 					</Card.Title>
 					<NavLink to={`/products/${_id}`} className="w-100 btn btn-primary">
-					 Purchase
+						Purchase
 					</NavLink>
 				</Card.Body>
 			</Card>

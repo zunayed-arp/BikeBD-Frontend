@@ -9,7 +9,7 @@ const Review = () => {
 
 	const { allContexts } = useAuth();
 	const { user } = allContexts;
-	const {displayName, email, photoURL } = user;
+	const { displayName, email, photoURL } = user;
 	console.log(displayName)
 	console.log(photoURL)
 	const [product, setProduct] = useState({});
@@ -17,7 +17,7 @@ const Review = () => {
 	const { id } = useParams();
 
 	useEffect(() => {
-		axios.get(`http://localhost:5000/products/${id}`)
+		axios.get(`https://aqueous-inlet-49489.herokuapp.com/products/${id}`)
 			.then(res => {
 				const gotProduct = res.data;
 				setProduct(gotProduct);
@@ -26,20 +26,20 @@ const Review = () => {
 
 	// const { title, img, rating, description, price, duration, } = product;
 	// console.log(product)
-	const { register, handleSubmit,reset } = useForm();
+	const { register, handleSubmit, reset } = useForm();
 
 	const onSubmit = (data) => {
-		const { name, email, description,rating } = data;
+		const { name, email, description, rating } = data;
 		const review = {
 			description,
 			rating,
 			name,
 			email,
-		
-			
+
+
 		};
 		// console.log(ordered)
-		axios.post("http://localhost:5000/reviews", review)
+		axios.post("https://aqueous-inlet-49489.herokuapp.com/reviews", review)
 			// console.log('clicked')
 			.then((res) => {
 				const response = res.data;
@@ -55,15 +55,15 @@ const Review = () => {
 	};
 	return (
 		<div
-			className="pb-2"
+			className="pb-2 text-center"
 		>
-		
+			<h1 className="text-center">Post A Review</h1>
 			<div className="container">
 				<div>
 					<div className="row">
 						<div className="col-lg-8 col-12">
 							<div className="p-2">
-							
+
 								<div>
 									<form
 										className="d-block w-100"

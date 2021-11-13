@@ -17,7 +17,7 @@ const AddService = () => {
 
 	const onSubmit = data => {
 		console.log(data);
-		axios.post('http://localhost:5000/addProducts', data)
+		axios.post('https://aqueous-inlet-49489.herokuapp.com/addProducts', data)
 			.then(res => {
 				if (res.data.insertedId) {
 					alert('Succesfully Added New Service')

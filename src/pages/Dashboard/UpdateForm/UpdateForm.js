@@ -9,7 +9,7 @@ const UpdateForm = () => {
 	const { register, handleSubmit, reset } = useForm();
 
 	useEffect(() => {
-		const url = `http://localhost:5000/products/${id}`
+		const url = `https://aqueous-inlet-49489.herokuapp.com/products/${id}`
 		fetch(url)
 			.then(res => res.json())
 			.then(data => {
@@ -69,7 +69,7 @@ const UpdateForm = () => {
 	const onSubmit = data => {
 		console.log(data);
 
-		const url = `http://localhost:5000/products/${id}`
+		const url = `https://aqueous-inlet-49489.herokuapp.com/products/${id}`
 		fetch(url, {
 			method: 'PUT',
 			headers: {

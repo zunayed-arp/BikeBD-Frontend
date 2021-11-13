@@ -7,7 +7,7 @@ const ManageAllOrders = () => {
 
 
 	useEffect(() => {
-		axios.get('http://localhost:5000/orders')
+		axios.get('https://aqueous-inlet-49489.herokuapp.com/orders')
 			.then(res => {
 				setMyOrders(res.data);
 			});
@@ -17,7 +17,7 @@ const ManageAllOrders = () => {
 	const cancelOrder = id => {
 		const cofirmation = window.confirm('confirm to delete!');
 		if (cofirmation) {
-			axios.delete(`http://localhost:5000/delete/${id}`)
+			axios.delete(`https://aqueous-inlet-49489.herokuapp.com/delete/${id}`)
 				.then(res => {
 					if (res.data === 1) {
 						const rest = myOrders.filter(order => order._id !== id);
@@ -33,7 +33,7 @@ const ManageAllOrders = () => {
 
 
 	const confirmation = id => {
-		axios.patch(`http://localhost:5000/confirmation/${id}`)
+		axios.patch(`https://aqueous-inlet-49489.herokuapp.com/confirmation/${id}`)
 			.then(res => {
 				if (res.data === 1) {
 					setConfirmed(res.data);

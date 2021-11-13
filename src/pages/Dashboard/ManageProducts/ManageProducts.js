@@ -6,14 +6,14 @@ const ManageServices = () => {
 
 	const [services, setServices] = useState([]);
 	useEffect(() => {
-		fetch('http://localhost:5000/products')
+		fetch('https://aqueous-inlet-49489.herokuapp.com/products')
 			.then(res => res.json())
 			.then(data => setServices(data))
 	}, [services])
 
 	const handleDelete = id => {
 		const confirmation = window.confirm('confirm to delete!');
-		const url = `http://localhost:5000/products/${id}`;
+		const url = `https://aqueous-inlet-49489.herokuapp.com/products/${id}`;
 		if (confirmation) {
 			fetch(url, {
 				method: 'DELETE'
@@ -37,7 +37,7 @@ const ManageServices = () => {
 	// const handleDelete = id => {
 	// 	const confirmation = window.confirm('confirm to delete!');
 	// 	if (confirmation) {
-	// 		axios.delete(`http://localhost:5000/products/${id}`)
+	// 		axios.delete(`https://aqueous-inlet-49489.herokuapp.com/products/${id}`)
 	// 			.then(res => {
 	// 				if (res.data === 1) {
 	// 					alert('succesfully deleted');
@@ -57,7 +57,7 @@ const ManageServices = () => {
 	// const cancelOrder = (id) => {
 	// 	const confirmation = window.confirm('confirm to delete!');
 	// 	if (confirmation) {
-	// 		axios.delete(`http://localhost:5000/delete/${id}`)
+	// 		axios.delete(`https://aqueous-inlet-49489.herokuapp.com/delete/${id}`)
 	// 			.then(res => {
 	// 				if (res.data === 1) {
 	// 					const rest = myOrders.filter(order => order._id !== id);

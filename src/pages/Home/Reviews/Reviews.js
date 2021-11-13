@@ -9,7 +9,7 @@ const Reviews = () => {
 	const [reviews, setReviews] = useState([])
 
 	useEffect(() => {
-		axios.get(`http://localhost:5000/reviews`)
+		axios.get(`https://aqueous-inlet-49489.herokuapp.com/reviews`)
 			.then(res => {
 				const gotProduct = res.data;
 				setReviews(gotProduct);
@@ -56,8 +56,8 @@ const Review = ({ review }) => {
 				</Card.Text>
 
 				<Card.Text>
-					Rated by {name} 
-					<br/>
+					Rated by {name}
+					<br />
 					<Rating
 						initialRating={rate}
 						emptySymbol="far fa-star icon-color"
