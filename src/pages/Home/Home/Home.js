@@ -1,8 +1,8 @@
 import React from "react";
-import Review from "../../Dashboard/Review/Review";
+import Footer from "../../Shared/Footer/Footer";
 import Navigation from "../../Shared/Navigation/Navigation";
-import UploadImage from "../../Shared/UploadImage/UploadImage";
 import Banner from "../Banner/Banner";
+import Blogs from "../Blogs/Blogs";
 import HomeExplore from "../HomeExplore/HomeExplore";
 import Reviews from "../Reviews/Reviews";
 
@@ -13,6 +13,8 @@ const Home = () => {
 			<Banner></Banner>
 			<HomeExplore></HomeExplore>
 			<Reviews></Reviews>
+			<Blogs></Blogs>
+			<Footer></Footer>
 
 		</div>
 	);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Nav, Navbar, NavDropdown, Button } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../../hooks/useAuth';
@@ -12,14 +12,14 @@ const Navigation = () => {
 
 	const { allContexts } = useAuth();
 	const { user, logOut, } = allContexts;
-	const { displayName, photoURL, email, uid } = user;
+	const { displayName, photoURL, email } = user;
 
 	return (
 		<div>
 
 			<Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
 				<Container>
-					<Navbar.Brand as={NavLink} className="text-white" to="/home">RoamX</Navbar.Brand>
+					<Navbar.Brand as={NavLink} className="text-white" to="/home">BikeBD</Navbar.Brand>
 					<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 					<Navbar.Collapse id="responsive-navbar-nav">
 						<Nav className="ms-auto align-items-center">
@@ -34,9 +34,9 @@ const Navigation = () => {
 							<Nav.Link as={NavLink} to="/contact" className="text-white">
 								Contact
 							</Nav.Link>
-							<Nav.Link as={HashLink} to="/addProducts" className="text-white">
+							{/* <Nav.Link as={HashLink} to="/addProducts" className="text-white">
 								Add Service
-							</Nav.Link>
+							</Nav.Link> */}
 							<Nav.Link as={HashLink} to="/explore" className="text-white">
 								Explore
 							</Nav.Link>
@@ -62,14 +62,6 @@ const Navigation = () => {
 												Sign Out
 											</button>
 										</div>
-
-										<Nav.Link className="text-black text-center" as={NavLink} to="/cart">
-											<button className="btn btn-primary">My Order</button>
-										</Nav.Link>
-										<Nav.Link className="text-black text-center" as={NavLink} to="/allorders">
-											<button className="btn btn-primary">Manage All Orders</button>
-										</Nav.Link>
-
 									</NavDropdown>
 								</>
 							)}

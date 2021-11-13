@@ -6,7 +6,6 @@ import {
 	faEnvelope,
 	faLock,
 	faUser,
-	faLink,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink, useHistory,useLocation } from "react-router-dom";
 import useAuth from '../../../hooks/useAuth';
@@ -19,15 +18,11 @@ const Register = () => {
 	const location = useLocation();
 
 
-	const { user,
-		admin,
-		token,
-		isLoading,
+	const { 
 		authError,
 		registerUser,
-		loginUser,
 		signInWithGoogle,
-		logOut,} = allContexts;
+		} = allContexts;
 
 
 	const handleOnBlur = e => {

@@ -1,27 +1,46 @@
 import React from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Card, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import Footer from '../../Shared/Footer/Footer';
+import Navigation from '../../Shared/Navigation/Navigation';
 
 const Explore = () => {
-	const { products, setProducts} = useAuth();
+	const { products,  loading } = useAuth();
+
+	if (loading) {
+		return (
+			<div className="text-center my-5 py-5">
+				<Spinner variant="success" animation="border" role="status">
+					<span className="visually-hidden">Loading...</span>
+				</Spinner>
+			</div>
+		)
+	};
 
 	return (
-		<Container>
-			<Row>
-				{
-					products.map(product => {
-						return (
-							<Product
-								key={product._id}
-								product={product}
-							>
-							</Product>
-						);
-					})
-				}
-			</Row>
-		</Container>
+		<>
+			<Navigation />
+			<Container>
+
+				<h1>Explore Our Products</h1>
+				<Row>
+					{
+						products.map(product => {
+							return (
+								<Product
+									key={product._id}
+									product={product}
+								>
+								</Product>
+							);
+						})
+					}
+				</Row>
+			</Container>
+
+			<Footer />
+		</>
 	);
 };
 

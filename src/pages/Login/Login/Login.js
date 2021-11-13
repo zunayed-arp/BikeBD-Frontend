@@ -4,9 +4,7 @@ import { Col, Form, FormControl, InputGroup, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faEnvelope,
-	faLock,
-	faUser,
-	faLink,
+	faLock
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink, useHistory, useLocation } from "react-router-dom";
 import useAuth from '../../../hooks/useAuth';
@@ -16,12 +14,9 @@ const Login = () => {
 	const [loginData, setLoginData] = useState({});
 	const { allContexts } = useAuth();
 
-	const { user,
-		isLoading,
+	const { 
 		authError,
-		registerUser,
 		loginUser,
-		logOut,
 		signInWithGoogle, } = allContexts;
 
 

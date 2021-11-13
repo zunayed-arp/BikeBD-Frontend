@@ -11,6 +11,11 @@ import PlaceOrder from './pages/Dashboard/PlaceOrder/PlaceOrder';
 import MyOrders from './pages/Dashboard/MyOrders/MyOrders';
 import Explore from './pages/Explore/Explore/Explore';
 import ManageAllOrders from './pages/Dashboard/ManageAllOrders/ManageAllOrders';
+import UpdateForm from './pages/Dashboard/UpdateForm/UpdateForm';
+import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
+import NotFound from './pages/NotFound/NotFound';
+import Contact from './pages/Contact/Contact';
+import About from './pages/About/About';
 
 
 
@@ -19,6 +24,7 @@ function App() {
     <div className="App">
       <AuthProvider>
         <Router>
+          {/* <Navigation></Navigation> */}
           <Switch>
             <Route exact path="/">
               <Home></Home>
@@ -32,33 +38,52 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
-            <Route path="/addProducts">
+            <PrivateRoute path="/addProducts">
               <AddService></AddService>
-            </Route>
+            </PrivateRoute>
 
-            <Route path="/products/:id">
+            <PrivateRoute path="/products/:id">
               <PlaceOrder></PlaceOrder>
-            </Route>
+            </PrivateRoute>
 
-            <Route path="/myOrders">
+            <PrivateRoute exact path="/myOrders">
               <MyOrders></MyOrders>
-            </Route>
+            </PrivateRoute>
 
             <Route path="/explore">
               <Explore></Explore>
             </Route>
 
-            <Route path="/manage">
+            <Route exact path="/manage">
               <ManageAllOrders></ManageAllOrders>
             </Route>
 
             <Route path="/dashboard">
-            <Dashboard></Dashboard>
+              <Dashboard></Dashboard>
+            </Route>
+
+            <Route path="/contact">
+              <Contact></Contact>
+            </Route>
+
+            <Route path="/about">
+              <About></About>
+            </Route>
+
+
+
+            <Route exact path="/updateForm/:id">
+              <UpdateForm></UpdateForm>
+            </Route>
+
+
+            <Route exact path="*">
+              <NotFound></NotFound>
             </Route>
 
 
           </Switch>
-
+          {/* <Footer></Footer> */}
         </Router>
       </AuthProvider>
     </div>

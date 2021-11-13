@@ -6,10 +6,10 @@ export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
 	const allContexts = useFirebae();
-	const { products, setProducts,  cancelOrder, myOrders, setMyOrders } = useData();
+	const { products, setProducts,  cancelOrder, myOrders, setMyOrders,loading } = useData();
 
 	const data = {
-		allContexts, products, setProducts, cancelOrder, myOrders, setMyOrders
+		allContexts, products, setProducts, cancelOrder, myOrders, setMyOrders,loading
 	}
 	return (
 		<AuthContext.Provider value={data}>

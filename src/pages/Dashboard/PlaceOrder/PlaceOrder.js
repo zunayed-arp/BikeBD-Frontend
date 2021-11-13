@@ -1,11 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 
 
 const PlaceOrder = () => {
+
+	const [loading,setLoding] = useState(true);
 
 	const { allContexts } = useAuth();
 	const { user } = allContexts;
@@ -21,15 +24,19 @@ const PlaceOrder = () => {
 			.then(res => {
 				const gotProduct = res.data;
 				setProduct(gotProduct);
+				setLoding(false);
 			})
 	}, [id])
+
+
+
 
 	const { title, img, rating, description, price, duration, } = product;
 	// console.log(product)
 	const { register, handleSubmit } = useForm();
 
 	const onSubmit = (data) => {
-		const { name, email, address, phone, profile } = data;
+		const { name, email, address, phone,  } = data;
 		const ordered = {
 			title,
 			description,
@@ -56,6 +63,17 @@ const PlaceOrder = () => {
 					alert("something went wrong!!");
 				}
 			});
+	};
+
+
+	if (loading) {
+		return (
+			<div className="text-center my-5 py-5">
+				<Spinner variant="success" animation="border" role="status">
+					<span className="visually-hidden">Loading...</span>
+				</Spinner>
+			</div>
+		)
 	};
 
 

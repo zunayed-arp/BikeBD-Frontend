@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import useAuth from '../../../hooks/useAuth';
 
 const ManageAllOrders = () => {
 	const [myOrders, setMyOrders] = useState([]);

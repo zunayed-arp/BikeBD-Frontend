@@ -20,6 +20,7 @@ const Reviews = () => {
 		<>
 
 			<Container>
+				<h1 className="border bg-info">Customer Review</h1>
 				<Row>
 
 					{
@@ -46,7 +47,7 @@ const Review = ({ review }) => {
 	const { description, rating, name } = review;
 	const rate = parseInt(rating)
 	return (
-		<Col md={3} className="border mx-5">
+		<Col md={4} className="border mx-5 my-3">
 
 			<Card.Title>Review by {name}</Card.Title>
 			<Card.Body >

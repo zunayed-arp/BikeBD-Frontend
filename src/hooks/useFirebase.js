@@ -30,7 +30,7 @@ const useFirebae = () => {
 				}).then(() => {
 				}).catch((error) => {
 				});
-				history.replace('/');
+				history.replace('/dashboard');
 			})
 			.catch((error) => {
 				setAuthError(error.message);
@@ -43,7 +43,7 @@ const useFirebae = () => {
 		setIsLoading(true);
 		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
-				const destination = location?.state?.from || '/';
+				const destination = location?.state?.from || '/dashboard';
 				history.replace(destination);
 				setAuthError('');
 			})

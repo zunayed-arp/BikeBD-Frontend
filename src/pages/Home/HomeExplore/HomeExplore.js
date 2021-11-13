@@ -29,7 +29,9 @@ const HomeExplore = () => {
 	}
 
 	return (
-		<Container>
+		<Container className="my-5">
+
+		<h1 className="border bg-info">Explore Bikes</h1>
 			<Row>
 				{
 					products.slice(Math.max(products.length - 6)).map(product => {

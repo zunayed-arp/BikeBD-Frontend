@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 
 const useData = () => {
 	const [products, setProducts] = useState([]);
+	const [loading,setLoading] = useState(true);
 	
 
 
@@ -12,6 +13,7 @@ const useData = () => {
 			.then(data => {
 				// console.log(data);
 				setProducts(data);
+				setLoading(false);
 			})
 	}, [])
 
@@ -42,7 +44,7 @@ const useData = () => {
 	// };
 
 	return {
-		products, setProducts
+		products, setProducts,loading
 	}
 
 }

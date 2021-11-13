@@ -9,7 +9,7 @@ const Review = () => {
 
 	const { allContexts } = useAuth();
 	const { user } = allContexts;
-	const { _id,displayName, email, photoURL } = user;
+	const {displayName, email, photoURL } = user;
 	console.log(displayName)
 	console.log(photoURL)
 	const [product, setProduct] = useState({});
@@ -24,7 +24,7 @@ const Review = () => {
 			})
 	}, [id])
 
-	const { title, img, rating, description, price, duration, } = product;
+	// const { title, img, rating, description, price, duration, } = product;
 	// console.log(product)
 	const { register, handleSubmit,reset } = useForm();
 
@@ -47,6 +47,7 @@ const Review = () => {
 				if (response) {
 					alert("Review Posted Successfully!");
 					history.push("/");
+					reset();
 				} else {
 					alert("something went wrong!!");
 				}
